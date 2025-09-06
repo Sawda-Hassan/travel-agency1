@@ -1,0 +1,17 @@
+/* src/Footer.css */
+.footer {
+    background-color: #333; /* Dark background */
+    color: #fff; /* White text */
+    padding: 20px 0; /* Vertical padding */
+    text-align: center; /* Center the text */
+    font-size: 0.9em;
+    margin-top: 50px; /* Space above the footer */
+    width: 100%; /* Full width */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.footer-content {
+    max-width: 1200px; /* Match the width of your main content */
+    margin: 0 auto; /* Center the content */
+    padding: 0 20px; /* Horizontal padding for smaller screens */
+}

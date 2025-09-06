@@ -1,0 +1,209 @@
+/* src/ContactUs.css */
+
+/* Main wrapper for the entire contact page content */
+.contact-page-wrapper {
+    background-color: #fff; /* Default background for the page area */
+    padding-bottom: 0; /* Ensures no extra padding at the bottom before the global footer */
+    min-height: calc(100vh - var(--navbar-height, 60px) - var(--footer-height, 80px)); /* Adjust for global navbar/footer if present */
+    display: flex;
+    flex-direction: column; /* Stacks sections vertically */
+}
+
+/* Section for the dark blue contact details and services */
+.contact-details-section {
+    background-color: #0d0d21; /* Dark blue background from image */
+    color: #fff; /* White text */
+    padding: 40px 20px;
+    display: grid; /* Use CSS Grid for layout */
+    /* 3 columns for info/services, 1.5 for form */
+    grid-template-columns: repeat(3, 1fr) 1.5fr;
+    gap: 30px; /* Space between columns */
+    max-width: 1200px; /* Max width to center content */
+    margin: 0 auto; /* Center the section */
+    width: 100%; /* Ensure it takes full width of its container */
+    box-sizing: border-box; /* Include padding in width */
+    position: relative; /* For positioning the form */
+    min-height: 500px; /* Ensure enough height for the form to sit on top */
+    /* Add padding at the bottom to make space for the form to 'float' over */
+    padding-bottom: 80px;
+}
+
+.contact-column {
+    padding: 0 15px; /* Inner padding for columns */
+}
+
+.contact-column h3 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle separator */
+    padding-bottom: 10px;
+}
+
+/* Services List */
+.services-column ul {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+.services-column ul li {
+    margin-bottom: 10px;
+    font-size: 0.95em;
+}
+
+/* Contact Info Items (phone, email, location) */
+.office-info .contact-item {
+    display: flex;
+    align-items: flex-start; /* Align icon to top of text */
+    margin-bottom: 15px;
+}
+
+.office-info .contact-item i {
+    font-size: 1.2em;
+    margin-right: 15px;
+    color: #007bff; /* Bright blue for icons */
+}
+
+.office-info .contact-item p {
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Social Media Icon (LinkedIn) */
+.social-icon-large {
+    font-size: 2.5em; /* Larger icon size */
+    color: #fff; /* White color */
+    margin-top: 20px;
+    display: inline-block; /* Allows margin and positioning */
+    transition: color 0.3s ease;
+}
+
+.social-icon-large:hover {
+    color: #007bff; /* Hover effect */
+}
+
+/* Contact Form Specific Styles */
+.contact-form-column {
+    /* This column will contain the form, but the form itself will be absolutely positioned */
+    grid-column: 4 / 5; /* Place it in the 4th grid column */
+    position: relative; /* For positioning the form within this column */
+}
+
+.contact-form {
+    background-color: #fff; /* White background for the form */
+    color: #333; /* Dark text for the form */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+    position: absolute; /* Position relative to .contact-details-section */
+    top: 50%; /* Start from the middle */
+    left: 50%; /* Start from the middle */
+    transform: translate(-50%, -50%); /* Center it precisely */
+    width: 90%; /* Adjust width as needed */
+    max-width: 400px; /* Max width for the form */
+    z-index: 10; /* Ensure it's above the dark background */
+    box-sizing: border-box;
+}
+
+.contact-form h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: calc(100% - 20px); /* Account for padding */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.contact-form textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 100px;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff; /* Blue button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Blue bar below the main contact section */
+.contact-blue-bar {
+    background-color: #007bff; /* Bright blue from image */
+    height: 100px; /* Height as seen in image */
+    width: 100%;
+    margin-top: -50px; /* Overlap with the section above */
+    position: relative;
+    z-index: 5; /* Ensure it's below the form but above the global footer */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .contact-details-section {
+        /* On medium screens, change to 2 columns for info/services */
+        grid-template-columns: repeat(2, 1fr);
+        /* Make space for the form below, as it will move out of its column */
+        padding-bottom: 200px;
+    }
+
+    .contact-form-column {
+        grid-column: 1 / -1; /* Form spans all columns */
+        grid-row: 3; /* Move form to a new row below the contact info */
+        position: static; /* Remove absolute positioning */
+        transform: none; /* Remove transform */
+        display: flex;
+        justify-content: center;
+        margin-top: 30px; /* Space from content above */
+    }
+
+    .contact-form {
+        position: static; /* Remove absolute positioning */
+        transform: none; /* Remove transform */
+        width: 80%; /* Adjust width for smaller screens */
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-details-section {
+        grid-template-columns: 1fr; /* Single column on small screens */
+        padding-bottom: 200px; /* Still need space for the form */
+    }
+
+    .contact-column {
+        padding: 0; /* Remove inner padding */
+    }
+
+    .contact-form {
+        width: 90%; /* Adjust width for very small screens */
+    }
+}
